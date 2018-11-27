@@ -1,0 +1,26 @@
+{
+  "env": {
+    "jest/globals": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "react",
+    "fp",
+    "jsx-a11y",
+    "jest"
+  ],
+  "rules": {
+    "fp/no-delete": "error",
+    "fp/no-mutating-assign": "error",
+    "fp/no-valueof-field": "error",
+    "no-var": "error",
+    "valid-jsdoc": "error",
+    "require-jsdoc": "error",
+    "jsx-a11y/label-has-for": 0
+  }
+}
