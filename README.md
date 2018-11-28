@@ -1,4 +1,3 @@
-Simple application for doing some test with React and Redux.
+Simple application for doing some test with NextJS.
 
-Originally based on webpack-express-boilerplate
-https://github.com/christianalfoni/webpack-express-boilerplate
+It uses the amazing `swapi` API available at [https://swapi.co](https://swapi.co)

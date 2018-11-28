@@ -1,0 +1,53 @@
+{
+  "name": "starwarspedia",
+  "version": "1.0.0",
+  "description": "Simple application for doing some test with React and Redux.",
+  "main": "index.js",
+  "scripts": {
+    "_dev": "next",
+    "_build": "next build",
+    "_start": "next start",
+    "__dev": "node server/server.js",
+    "dev": "nodemon -w ./server -w ./common -w ./utils ./server/server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server/server.js",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csarnataro/starwarspedia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csarnataro/starwarspedia/issues"
+  },
+  "homepage": "https://github.com/csarnataro/starwarspedia#readme",
+  "dependencies": {
+    "fastify": "^1.13.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "lru-cache": "^5.1.1",
+    "next": "^7.0.2",
+    "next-routes": "^1.4.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-svg-spinner": "^1.0.2",
+    "styled-components": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.0.1",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.6"
+  }
+}
