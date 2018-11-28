@@ -1,17 +1,15 @@
 const fetch = require('isomorphic-unfetch')
-const LRU = require('lru-cache')
+const cache = require('../cache').cache
 
 /* eslint-disable require-jsdoc */
 async function routes (fastify, options) {
-  const cache = new LRU()
-
   fastify.get('/api/item/:name/thumb/', async (request, reply) => {
     const name = request.params.name
     const fullUrl = request.raw.url
     let thumbnailUrl
     if (!cache.has(fullUrl)) {
       console.log(`${fullUrl} not found in cache`)
-      const search = await fetch(`http://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURI(name)}`)
+      const search = await fetch(`http://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURIComponent(name)}`)
       const searchJson = await search.json()
       if (searchJson.items) {
         const articleId = searchJson.items && searchJson.items[0].id
@@ -26,6 +24,9 @@ async function routes (fastify, options) {
         }
       }
       cache.set(fullUrl, thumbnailUrl)
+      console.log('************ BEGIN: images 29 ************')
+      console.dir(cache.length, { colors: true, depth: 16 })
+      console.log('************ END:   images 29 ************')
     } else {
       console.log(`${fullUrl} found in cache`)
       thumbnailUrl = cache.get(fullUrl)
@@ -43,7 +44,7 @@ async function routes (fastify, options) {
       const sectionJson = await section.json()
       const firstItem = sectionJson.results[0]
       const firstContentName = firstItem.name || firstItem.title
-      const search = await fetch(`http://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURI(firstContentName)}`)
+      const search = await fetch(`http://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURIComponent(firstContentName)}`)
       const searchJson = await search.json()
       if (searchJson.items) {
         const articleId = searchJson.items && searchJson.items[0].id
@@ -58,6 +59,9 @@ async function routes (fastify, options) {
         }
       }
       cache.set(fullUrl, thumbnailUrl)
+      console.log('************ BEGIN: images 64 ************')
+      console.dir(cache.length, { colors: true, depth: 16 })
+      console.log('************ END:   images 64 ************')
     } else {
       console.log(`${fullUrl} found in cache`)
       thumbnailUrl = cache.get(fullUrl)

@@ -1,12 +1,12 @@
 import React from 'react'
 import fetch from 'isomorphic-unfetch'
-import PropTypes from 'prop-types'
-import Layout from '../components/Layout'
-import { Column, Row } from '../components/Grid'
 import getConfig from 'next/config'
-import WikiaLazyLoadImage from '../components/WikiaLazyLoadImage'
-import { Title } from '../components/Typography'
-import { DetailItem } from '../components/DetailItems'
+import PropTypes from 'prop-types'
+import Layout from '../../components/Layout'
+import { Column, Row } from '../../components/Grid'
+import WikiaLazyLoadImage from '../../components/WikiaLazyLoadImage'
+import { Title } from '../../components/Typography'
+import { DetailItem } from '../../components/DetailItems'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -15,7 +15,7 @@ const Page = ({ film, id }) =>
     <Row key="abc">
       <Column span="4">
         <WikiaLazyLoadImage src={
-          `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/images/thumb/${film.title}`
+          `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/item/${encodeURI(film.title)}/thumb/`
         } />
       </Column>
       <Column span="8">

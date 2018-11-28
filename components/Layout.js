@@ -1,8 +1,14 @@
 import Head from 'next/head'
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Container from '../components/Container'
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-family: Arial, sans;
+  }
+`
 
 const Footer = styled.footer`
   margin-top: 30px;
@@ -12,6 +18,7 @@ const Footer = styled.footer`
 
 const Layout = (props) => (
   <Container>
+    <GlobalStyle />
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />

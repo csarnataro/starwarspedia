@@ -9,7 +9,7 @@ const { publicRuntimeConfig } = getConfig()
 const ContentPreview = ({ title }) =>
   <React.Fragment>
     <WikiaLazyLoadImage src={
-      `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/item/${title}/thumb/`
+      `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/item/${encodeURIComponent(title)}/thumb/`
     } />
     <Title>
       {title}
