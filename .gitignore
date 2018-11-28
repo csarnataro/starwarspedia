@@ -8,3 +8,8 @@ dist
 node_modules/
 # package-lock.json
 config.json
+
+# temporary tests with Docker
+Dockerfile
+misc.md
+.dockerignore
