@@ -10,7 +10,7 @@ const SectionPreview = ({ sectionId }) => {
   return (
     <React.Fragment>
       <WikiaLazyLoadImage src={
-        `//${publicRuntimeConfig.publicServerName}/api/section/${sectionId}/thumb/`
+        `${publicRuntimeConfig.publicServerName}/api/section/${sectionId}/thumb/`
       } />
       <Title>
         See all: {sectionId}
