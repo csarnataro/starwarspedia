@@ -18,7 +18,7 @@ const page = (sectionName, titleField) => {
     </Layout>
 
   Page.getInitialProps = async ({ req, query }) => {
-    const url = `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/${sectionName}/`
+    const url = `//${publicRuntimeConfig.publicServerName}/api/${sectionName}/`
     console.log('************ BEGIN: Page 22 ************')
     console.dir(url, { colors: true, depth: 16 })
     console.log('************ END:   Page 22 ************')

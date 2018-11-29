@@ -4,10 +4,6 @@
   "description": "Simple application for doing some test with React and Redux.",
   "main": "index.js",
   "scripts": {
-    "_dev": "next",
-    "_build": "next build",
-    "_start": "next start",
-    "__dev": "node server/server.js",
     "dev": "nodemon -w ./server -w ./common -w ./utils ./server/server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server/server.js",

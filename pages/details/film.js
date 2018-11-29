@@ -15,7 +15,7 @@ const Page = ({ film, id }) =>
     <Row key="abc">
       <Column span="4">
         <WikiaLazyLoadImage src={
-          `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/item/${encodeURI(film.title)}/thumb/`
+          `//${publicRuntimeConfig.publicServerName}/api/item/${encodeURI(film.title)}/thumb/`
         } />
       </Column>
       <Column span="8">
@@ -38,7 +38,7 @@ const Page = ({ film, id }) =>
 
 Page.getInitialProps = async ({ query }) => {
   const filmReq = await fetch(
-    `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/films/${query.id}/`
+    `//${publicRuntimeConfig.publicServerName}/api/films/${query.id}/`
   )
   const film = await filmReq.json()
   return { film, id: query.id }

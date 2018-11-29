@@ -9,11 +9,11 @@ async function routes (fastify, options) {
     let thumbnailUrl
     if (!cache.has(fullUrl)) {
       console.log(`${fullUrl} not found in cache`)
-      const search = await fetch(`http://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURIComponent(name)}`)
+      const search = await fetch(`https://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURIComponent(name)}`)
       const searchJson = await search.json()
       if (searchJson.items) {
         const articleId = searchJson.items && searchJson.items[0].id
-        const article = await fetch(`http://starwars.wikia.com/api/v1/Articles/Details/?ids=${articleId}`)
+        const article = await fetch(`https://starwars.wikia.com/api/v1/Articles/Details/?ids=${articleId}`)
         const articleJson = await article.json()
         thumbnailUrl = {
           thumbnailUrl: articleJson.items[articleId].thumbnail
@@ -44,11 +44,11 @@ async function routes (fastify, options) {
       const sectionJson = await section.json()
       const firstItem = sectionJson.results[0]
       const firstContentName = firstItem.name || firstItem.title
-      const search = await fetch(`http://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURIComponent(firstContentName)}`)
+      const search = await fetch(`https://starwars.wikia.com/api/v1/Search/List/?limit=1&query=${encodeURIComponent(firstContentName)}`)
       const searchJson = await search.json()
       if (searchJson.items) {
         const articleId = searchJson.items && searchJson.items[0].id
-        const article = await fetch(`http://starwars.wikia.com/api/v1/Articles/Details/?ids=${articleId}`)
+        const article = await fetch(`https://starwars.wikia.com/api/v1/Articles/Details/?ids=${articleId}`)
         const articleJson = await article.json()
         thumbnailUrl = {
           thumbnailUrl: articleJson.items[articleId].thumbnail
