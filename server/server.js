@@ -56,5 +56,5 @@ fastify.register(require('./api/images'))
 
 fastify.listen(port, '0.0.0.0', (err, address) => {
   if (err) throw err
-  console.log(`> Ready on ${address}:${port}`)
+  console.log(`> Ready on ${address}`)
 })
