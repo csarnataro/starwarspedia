@@ -5,12 +5,13 @@ import React from 'react'
 import sections from '../common/sections'
 import { Column, Row } from '../components/Grid'
 import SectionPreview from './SectionPreview'
+import { Title } from './Typography';
 
 class SectionList extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <h2>Sections</h2>
+        <Title>Sections</Title>
         <Row>
           {sections
             .filter(section => section !== this.props.current)
