@@ -1,1 +1,4 @@
 runtime: nodejs8
+
+env_variables:
+  PUBLIC_SERVER_NAME: "starwarspedia-223922.appspot.com"

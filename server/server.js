@@ -54,7 +54,7 @@ fastify.register((fastify, opts, next) => {
 fastify.register(require('./api/sections'))
 fastify.register(require('./api/images'))
 
-fastify.listen(port, (err) => {
+fastify.listen(port, '0.0.0.0', (err, address) => {
   if (err) throw err
-  console.log(`> Ready on http://localhost:${port}`)
+  console.log(`> Ready on ${address}:${port}`)
 })

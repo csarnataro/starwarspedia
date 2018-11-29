@@ -18,7 +18,7 @@ const Page = ({ character, id }) =>
 
 Page.getInitialProps = async ({ query }) => {
   const characterReq = await fetch(
-    `http://${publicRuntimeConfig.serverName}:${publicRuntimeConfig.portNumber}/api/people/${query.id}/`
+    `//${publicRuntimeConfig.publicServerName}/api/people/${query.id}/`
   )
   const character = await characterReq.json()
   return { character, id: query.id }
