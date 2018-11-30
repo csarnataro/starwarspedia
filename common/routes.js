@@ -9,5 +9,5 @@ module.exports = routes()
   .add('vehicles', '/vehicles', 'sections/vehicles')
   .add('species', '/species', 'sections/species')
 
-  .add('character details', '/people/:id', 'details/character')
-  .add('film details', '/films/:id', 'details/film')
+  .add('people-detail', '/people/:id', 'details/character')
+  .add('films-detail', '/films/:id', 'details/film')

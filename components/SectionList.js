@@ -1,7 +1,7 @@
 
-import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Link } from '../common/routes'
 import sections from '../common/sections'
 import { Column, Row } from '../components/Grid'
 import SectionPreview from './SectionPreview'
@@ -18,7 +18,7 @@ class SectionList extends React.Component {
             .map(section =>
               <Column span={3} key={`COL_${section}`}>
                 <Link
-                  href={`/${section}/`}
+                  route={`/${section}/`}
                 >
                   {/* eslint-disable jsx-a11y/anchor-is-valid */}
                   <a>
