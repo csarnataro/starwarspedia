@@ -1,4 +1,9 @@
-const fastify = require('fastify')({ logger: { level: 'error' } })
+const fastify = require('fastify')({
+  logger: {
+    level: 'warn',
+    file: './server.log' // will use pino.destination()
+  }
+})
 const Next = require('next')
 const path = require('path')
 const routes = require('../common/routes')
@@ -10,6 +15,11 @@ fastify.register(require('fastify-static'), {
   root: path.join(__dirname, 'public'),
   prefix: '/assets/' // optional: default '/'
 })
+
+// fastify.addHook('preHandler', (request, reply, done) => {
+//   request.log.error(`feat-1234[${request.headers['feat-1234']}]`)
+//   done()
+// })
 
 fastify.register((fastify, opts, next) => {
   const app = Next({ dev })
@@ -27,18 +37,7 @@ fastify.register((fastify, opts, next) => {
         })
       }
 
-      // fastify.get('/people/:id', (req, reply) => {
-      //   return app.render(req.req, reply.res, '/index', req.params)
-      //     .then(() => {
-      //       reply.sent = true
-      //     })
-      // })
-
       fastify.get('/*', (req, reply) => {
-        console.log('************ BEGIN: server 36 ************')
-        console.dir(req.raw, { colors: true, depth: 16 })
-        console.log('************ END:   server 36 ************')
-
         return app.handleRequest(req.req, reply.res)
           .then(() => {
             reply.sent = true

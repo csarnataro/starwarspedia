@@ -1,9 +1,9 @@
 
-import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 import { Column, Row } from '../components/Grid'
+import { Link } from '../common/routes'
 
 import { id } from '../utils/helper'
 import ContentPreview from './ContentPreview'
@@ -16,7 +16,7 @@ class MainContentList extends React.Component {
         {content.map(item =>
           <Column span="3" key={item.url} >
             <Link
-              href={`/${contentType}/${id(item.url)}/`}
+              route={`${contentType}-detail`} params={{ id: id(item.url) }}
             >
               {/* eslint-disable jsx-a11y/anchor-is-valid */}
               <a>
