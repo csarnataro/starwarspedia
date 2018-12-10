@@ -2,7 +2,7 @@ const routes = require('next-routes')
 
 module.exports = routes()
   .add('home', '/', 'sections/films')
-  .add('films', '/films', 'sections/films')
+  // .add('films', '/films', 'sections/films')
   .add('people', '/people', 'sections/people')
   .add('starships', '/starships', 'sections/starships')
   .add('planets', '/planets', 'sections/planets')

@@ -1,17 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import getConfig from 'next/config'
+// import getConfig from 'next/config'
 import { Title } from '../components/Typography'
-import WikiaLazyLoadImage from '../components/WikiaLazyLoadImage'
+// import WikiaLazyLoadImage from '../components/WikiaLazyLoadImage'
 
-const { publicRuntimeConfig } = getConfig()
+// const { publicRuntimeConfig } = getConfig()
 
 const SectionPreview = ({ sectionId }) => {
   return (
     <React.Fragment>
+      [{process.browser}]
+
+      {/*
       <WikiaLazyLoadImage src={
-        `${publicRuntimeConfig.publicServerName}/api/section/${sectionId}/thumb/`
+        `${publicRuntimeConfig.publicServerName}/api/pics/section/${sectionId}/thumb/`
       } />
+      */}
       <Title>
         See all: {sectionId}
       </Title>

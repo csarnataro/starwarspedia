@@ -22,11 +22,11 @@ const Layout = (props) => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <link rel='shortcut icon' type='image/x-icon' href='/assets/favicon.ico' />
+      <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     </Head>
     {props.children}
     <Footer>
-      <strong>Credits</strong> Data: <a href="https://swapi.co" target="_new">swapi.co</a> - Images: <a href="https://starwars.wikia.com" target="_new">starwars.wikia.com</a>
+      <strong> Credits</strong> Data: <a href="https://swapi.co" target="_new">swapi.co</a> - Images: <a href="https://starwars.wikia.com" target="_new">starwars.wikia.com</a>
     </Footer>
   </Container>
 )

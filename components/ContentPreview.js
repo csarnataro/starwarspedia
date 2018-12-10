@@ -2,15 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import getConfig from 'next/config'
 import { Title } from '../components/Typography'
-import WikiaLazyLoadImage from '../components/WikiaLazyLoadImage'
+// import WikiaLazyLoadImage from '../components/WikiaLazyLoadImage'
 
 const { publicRuntimeConfig } = getConfig()
 
 const ContentPreview = ({ title }) =>
   <React.Fragment>
+    [{`${publicRuntimeConfig.publicServerName}/api/pics/item/${encodeURIComponent(title)}/thumb/`}]
+    {/*
     <WikiaLazyLoadImage src={
-      `${publicRuntimeConfig.publicServerName}/api/item/${encodeURIComponent(title)}/thumb/`
+      `${publicRuntimeConfig.publicServerName}/api/pics/item/${encodeURIComponent(title)}/thumb/`
     } />
+    */}
     <Title>
       {title}
     </Title>

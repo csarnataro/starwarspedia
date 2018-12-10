@@ -4,5 +4,5 @@ module.exports = {
     publicServerName: process.env.PUBLIC_SERVER_NAME ||
       `http://localhost:${process.env.PORT || 3000}`
   },
-  useFileSystemPublicRoutes: false
+  useFileSystemPublicRoutes: true
 }

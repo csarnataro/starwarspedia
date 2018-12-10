@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -w ./server -w ./common -w ./utils ./server/server.js",
+    "_dev": "node ./server/server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server/server.js",
     "test": "jest --coverage"
@@ -21,15 +22,18 @@
   },
   "homepage": "https://github.com/csarnataro/starwarspedia#readme",
   "dependencies": {
-    "fastify": "^1.13.0",
-    "fastify-static": "^0.14.0",
+    "@paralleldrive/feature-toggles": "^1.0.3",
+    "@paralleldrive/react-feature-toggles": "^2.0.2",
+    "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
     "lru-cache": "^5.1.1",
     "next": "^7.0.2",
     "next-routes": "^1.4.2",
+    "nookies": "^1.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-svg-spinner": "^1.0.2",
+    "serve-favicon": "^2.5.0",
     "styled-components": "^4.1.1"
   },
   "devDependencies": {
