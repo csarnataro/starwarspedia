@@ -21,6 +21,11 @@
     "no-var": "error",
     "valid-jsdoc": "error",
     "require-jsdoc": "error",
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "hrefLeft", "hrefRight" ],
+      "aspects": [ "invalidHref", "preferButton" ]
+    }],
     "jsx-a11y/label-has-for": 0
   }
 }

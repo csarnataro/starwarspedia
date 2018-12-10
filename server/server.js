@@ -17,6 +17,18 @@ const expressApp = express({ mergeParams: true })
 expressApp.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 expressApp.use('/api', require('./api'))
 
+expressApp.use((req, res, next) => {
+  const feat = req.query.feat
+  if (feat) {
+    if (feat === 'clear') {
+      res.clearCookie('feat')
+    } else {
+      res.cookie('feat', feat)
+    }
+  }
+  next()
+})
+
 app.prepare().then(() => {
   expressApp.use(handler).listen(port)
 })
