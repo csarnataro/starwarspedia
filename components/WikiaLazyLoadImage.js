@@ -53,14 +53,19 @@ class WikiaLazyLoadImage extends React.Component {
     return <ImagePlaceholder>
       {isLoading
         ? <Loader />
-        : <ResponsiveImage src={image} />
+        : <ResponsiveImage src={image} className={this.props.className} />
       }
     </ImagePlaceholder>
   }
 }
 
 WikiaLazyLoadImage.propTypes = {
-  src: PropTypes.string.isRequired
+  src: PropTypes.string.isRequired,
+  className: PropTypes.string
+}
+
+WikiaLazyLoadImage.defaultProps = {
+  className: ''
 }
 
 export default WikiaLazyLoadImage

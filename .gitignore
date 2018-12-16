@@ -13,3 +13,6 @@ config.json
 Dockerfile
 misc.md
 .dockerignore
+
+#test artifacts
+coverage/

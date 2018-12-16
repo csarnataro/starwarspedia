@@ -8,6 +8,5 @@ module.exports = routes()
   .add('planets', '/planets', 'sections/planets')
   .add('vehicles', '/vehicles', 'sections/vehicles')
   .add('species', '/species', 'sections/species')
-
   .add('people-detail', '/people/:id', 'details/character')
   .add('films-detail', '/films/:id', 'details/film')

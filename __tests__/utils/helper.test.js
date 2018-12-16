@@ -1,4 +1,4 @@
-const { id } = require('./helper')
+const { id } = require('../../utils/helper')
 
 describe('id', () => {
   it('should return a valid id with trailing slash', () => {

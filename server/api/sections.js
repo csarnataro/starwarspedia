@@ -1,49 +1,41 @@
 const fetch = require('isomorphic-unfetch')
 const cache = require('../cache').cache
+const asyncMiddleware = require('../../utils/asyncMiddleware')
 
-/* eslint-disable require-jsdoc */
-async function routes (fastify, options) {
-  fastify.get('/api/:section/:id/', async (request, reply) => {
-    console.log('************ BEGIN: films 25 ************')
-    console.dir(request.raw.url, { colors: true, depth: 16 })
-    console.log('************ END:   films 25 ************')
-    const fullUrl = request.raw.url
-    const id = request.params.id
-    const section = request.params.section
-    let film
-    if (!cache.has(fullUrl)) {
-      console.log(`${fullUrl} not found in cache`)
-      const filmReq = await fetch(`https://swapi.co/api/${section}/${id}/`)
-      film = await filmReq.json()
-      cache.set(fullUrl, film)
-      console.log('************ BEGIN: sections 21 ************')
-      console.dir(cache.length, { colors: true, depth: 16 })
-      console.log('************ END:   sections 21 ************')
-    } else {
-      console.log(`${fullUrl} found in cache`)
-      film = cache.get(fullUrl)
-    }
-    return film
-  })
-  fastify.get('/api/:section/', async (request, reply) => {
-    const fullUrl = request.raw.url
-    const section = request.params.section
-    let films
-    if (!cache.has(fullUrl)) {
-      console.log(`${fullUrl} not found in cache`)
-      const filmsRequest = await fetch(`https://swapi.co/api/${section}/`)
-      const filmsResponse = await filmsRequest.json()
-      films = filmsResponse.results
-      cache.set(fullUrl, films)
-      console.log('************ BEGIN: sections 40 ************')
-      console.dir(cache.length, { colors: true, depth: 16 })
-      console.log('************ END:   sections 40 ************')
-    } else {
-      console.log(`${fullUrl} found in cache`)
-      films = cache.get(fullUrl)
-    }
-    return films
-  })
-}
+const routes = require('express').Router()
+
+routes.get('/:section/', asyncMiddleware(async (req, res) => {
+  const fullUrl = req.originalUrl
+  const section = req.params.section
+  let items
+  if (!cache.has(fullUrl)) {
+    console.log(`${fullUrl} not found in cache`)
+    const filmsRequest = await fetch(`https://swapi.co/api/${section}/`)
+    const filmsResponse = await filmsRequest.json()
+    items = filmsResponse.results
+    cache.set(fullUrl, items)
+  } else {
+    console.log(`${fullUrl} found in cache`)
+    items = cache.get(fullUrl)
+  }
+  res.json(items)
+}))
+
+routes.get('/:section/:id', async (req, res) => {
+  const fullUrl = req.originalUrl
+  const id = req.params.id
+  const section = req.params.section
+  let item
+  if (!cache.has(fullUrl)) {
+    console.log(`${fullUrl} not found in cache`)
+    const filmReq = await fetch(`https://swapi.co/api/${section}/${id}/`)
+    item = await filmReq.json()
+    cache.set(fullUrl, item)
+  } else {
+    console.log(`${fullUrl} found in cache`)
+    item = cache.get(fullUrl)
+  }
+  res.json(item)
+})
 
 module.exports = routes

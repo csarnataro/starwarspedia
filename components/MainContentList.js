@@ -1,4 +1,5 @@
 
+import { Feature } from '@paralleldrive/react-feature-toggles'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -12,21 +13,25 @@ class MainContentList extends React.Component {
   render () {
     const { content, contentType, titleField } = this.props
     return (
-      <Row>
-        {content.map(item =>
-          <Column span="3" key={item.url} >
-            <Link
-              route={`${contentType}-detail`} params={{ id: id(item.url) }}
-            >
-              {/* eslint-disable jsx-a11y/anchor-is-valid */}
-              <a>
-                <ContentPreview title={item[titleField]} key={item[titleField]} />
-              </a>
-              {/* eslint-enable jsx-a11y/anchor-is-valid */}
-            </Link>
-          </Column>
-        )}
-      </Row>
+      <React.Fragment>
+        <Row className='row'>
+          {content.map(item =>
+            <Column className='col' span="3" key={item.url} >
+              <Link
+                route={`${contentType}-detail`} params={{ id: id(item.url) }}
+              >
+                <a>
+                  <ContentPreview title={item[titleField]} key={item[titleField]} />
+                </a>
+              </Link>
+            </Column>
+          )}
+        </Row>
+        <Feature
+          name="faq"
+          activeComponent={() => <Row><button>ACTIVE COMPONENT</button></Row>}
+        />
+      </React.Fragment>
     )
   }
 }

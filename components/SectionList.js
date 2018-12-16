@@ -20,11 +20,9 @@ class SectionList extends React.Component {
                 <Link
                   route={`/${section}/`}
                 >
-                  {/* eslint-disable jsx-a11y/anchor-is-valid */}
                   <a>
                     <SectionPreview sectionId={section} key={section} />
                   </a>
-                  {/* eslint-enable jsx-a11y/anchor-is-valid */}
                 </Link>
               </Column>
             )}
