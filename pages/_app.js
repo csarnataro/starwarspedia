@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app'
 import React from 'react'
 import jsCookie from 'js-cookie'
+import { parseCookies } from 'nookies'
 import { FeatureToggles } from '@paralleldrive/react-feature-toggles'
 
 export default class SWApp extends App {
@@ -10,10 +11,24 @@ export default class SWApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-    const requestFeatures = (ctx.req && ctx.req.query) ? ctx.req.query.feat : ''
-    const cookieFeatures = ctx.cookie ? ctx.cookie.feat : jsCookie.get('feat') || ''
-    const features = requestFeatures.split(',').concat(cookieFeatures.split(','))
+    const requestFeatures = (ctx.req && ctx.req.query)
+      ? (ctx.req.query.feat !== 'clear'
+        ? ctx.req.query.feat
+        : '')
+      : ''
 
+    const cookies = parseCookies(ctx)
+    const cookieFeatures = cookies.feat ? cookies.feat : jsCookie.get('feat') || ''
+
+    const requestFeaturesArray = requestFeatures
+      ? requestFeatures.split(',')
+      : []
+
+    const cookieFeaturesArray = cookieFeatures
+      ? cookieFeatures.split(',')
+      : []
+
+    const features = [...new Set([...requestFeaturesArray, ...cookieFeaturesArray])]
     return {
       pageProps,
       features
@@ -26,7 +41,6 @@ export default class SWApp extends App {
     return (
       <FeatureToggles features={features}>
         <Container>
-          <h1>Features: {features}</h1>
           <Component {...pageProps} />
         </Container>
       </FeatureToggles>

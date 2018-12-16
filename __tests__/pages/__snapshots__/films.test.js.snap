@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmsPage should render 1`] = `
+<div
+  class="sc-bdVaJa jjdztJ"
+>
+  <h1
+    class="sc-EHOje bsdWgW"
+  >
+    films
+  </h1>
+  <div
+    class="row sc-htpNat eTXmTl"
+  >
+    <div
+      class="col sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/films/1"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          film1
+        </h2>
+      </a>
+    </div>
+    <div
+      class="col sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/films/2"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          film2
+        </h2>
+      </a>
+    </div>
+  </div>
+  <h2
+    class="sc-ifAKCX jAKtgO"
+  >
+    Sections
+  </h2>
+  <div
+    class="sc-htpNat eTXmTl"
+  >
+    <div
+      class="sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/people/"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          See all: 
+          people
+        </h2>
+      </a>
+    </div>
+    <div
+      class="sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/starships/"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          See all: 
+          starships
+        </h2>
+      </a>
+    </div>
+    <div
+      class="sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/vehicles/"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          See all: 
+          vehicles
+        </h2>
+      </a>
+    </div>
+    <div
+      class="sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/planets/"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          See all: 
+          planets
+        </h2>
+      </a>
+    </div>
+    <div
+      class="sc-bxivhb VCyDY"
+      span="3"
+    >
+      <a
+        href="/species/"
+      >
+        <div
+          class="sc-bZQynM ktgaQi"
+        >
+          <div
+            class="sc-htoDjs kUCiQT"
+          />
+        </div>
+        <h2
+          class="sc-ifAKCX jAKtgO"
+        >
+          See all: 
+          species
+        </h2>
+      </a>
+    </div>
+  </div>
+</div>
+`;

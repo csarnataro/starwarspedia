@@ -9,7 +9,7 @@ const { publicRuntimeConfig } = getConfig()
 const SectionPreview = ({ sectionId }) => {
   return (
     <React.Fragment>
-      <WikiaLazyLoadImage src={
+      <WikiaLazyLoadImage className='section-thumb' src={
         `${publicRuntimeConfig.publicServerName}/api/pics/section/${sectionId}/thumb/`
       } />
       <Title>

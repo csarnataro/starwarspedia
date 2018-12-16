@@ -14,9 +14,9 @@ class MainContentList extends React.Component {
     const { content, contentType, titleField } = this.props
     return (
       <React.Fragment>
-        <Row>
+        <Row className='row'>
           {content.map(item =>
-            <Column span="3" key={item.url} >
+            <Column className='col' span="3" key={item.url} >
               <Link
                 route={`${contentType}-detail`} params={{ id: id(item.url) }}
               >
